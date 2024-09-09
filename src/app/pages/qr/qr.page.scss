@@ -5,9 +5,15 @@ ion-segment{
    .segment{
      padding: 30px 5px;
    }
+
+   .segment-content img{
+    margin-top: 100px; 
+    width: 400px;
+   }
    
    .submit{
-     height: 44px;
+     height: 50px;
+     width: 80px;
      --border-radius: 10px;
      --background: var(--ion-color-tertiary);
    }
