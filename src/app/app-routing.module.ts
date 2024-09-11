@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'recuperar',
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
+  {
+    path: 'notificacion',
+    loadChildren: () => import('./notificacion/notificacion.module').then( m => m.NotificacionPageModule)
+  },
 
 
 ];

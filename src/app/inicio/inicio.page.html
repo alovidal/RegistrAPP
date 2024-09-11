@@ -5,12 +5,17 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-avatar class="avatar">
-      <img
-        alt="Silhouette of a person's head"
-        src="https://ionicframework.com/docs/img/demos/avatar.svg"
-      />
-    </ion-avatar>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img
+          alt="Silhouette of a person's head"
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+        />
+      </ion-avatar>
+      <div class="infoperfil">
+      <ion-label>{{username}}</ion-label>
+    </div>
+    </ion-item>
     <ol>
       <button class="menu-button">Perfil</button>
     </ol>
@@ -18,7 +23,13 @@
       <button class="menu-button">Configuracion</button>
     </ol>
     <ol>
-      <button class="menu-button" [routerLink]="['/home']" routerLinkActive="router-link-active" >Cerrar Sesion</button>
+      <button
+        class="menu-button"
+        [routerLink]="['/home']"
+        routerLinkActive="router-link-active"
+      >
+        Cerrar Sesion
+      </button>
     </ol>
   </ion-content>
 </ion-menu>
@@ -31,7 +42,66 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding main-content">
-    <div class="welcome-content">Bienvenido {{username}}</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Curso</th>
+          <th>Clases Registradas</th>
+          <th>Asistencia</th>
+          <th>Asistencia Actual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Arquitectura</td>
+          <td>7</td>
+          <td>5</td>
+          <td><b>71.4%</b></td>
+        </tr>
+        <tr>
+          <td>Calidad De Software</td>
+          <td>9</td>
+          <td>7</td>
+          <td><b>77.8%</b></td>
+        </tr>
+        <tr>
+          <td>Consultas De Bases De Datos</td>
+          <td>8</td>
+          <td>8</td>
+          <td><b>100%</b></td>
+        </tr>
+        <tr>
+          <td>Fundamentos De Antropologia</td>
+          <td>3</td>
+          <td>3</td>
+          <td><b>100%</b></td>
+        </tr>
+        <tr>
+          <td>Ingles Basico Ii</td>
+          <td>8</td>
+          <td>8</td>
+          <td><b>100%</b></td>
+        </tr>
+        <tr>
+          <td>Matematica Aplicada</td>
+          <td>9</td>
+          <td>7</td>
+          <td><b>77.8%</b></td>
+        </tr>
+        <tr>
+          <td>Proceso De Portafolio 4</td>
+          <td>1</td>
+          <td>1</td>
+          <td><b>100%</b></td>
+        </tr>
+        <tr>
+          <td>Programacion De Aplicaciones Moviles</td>
+          <td>8</td>
+          <td>6</td>
+          <td><b>75%</b></td>
+        </tr>
+      </tbody>
+    </table>
   </ion-content>
 </div>
 
