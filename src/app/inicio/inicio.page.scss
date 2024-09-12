@@ -35,3 +35,21 @@
     padding: 10px;
   }
   
+  .tableStyle{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .tableStyle th, td{
+    padding: 9px;
+  }
+
+  .theadStyle{
+    background-color: #012C56;
+    border-radius: 15px;
+  }
+
+  .tbodyStyle{
+    color: black;
+  }
