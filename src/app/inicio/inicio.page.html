@@ -13,101 +13,192 @@
         />
       </ion-avatar>
       <div style="border: none;">
-      <ion-label>Bienvenida/o hola {{username}}</ion-label>
-    </div>
+        <ion-label>Bienvenida/o hola {{username}}</ion-label>
+      </div>
     </ion-item>
-    <ol>
-      <button class="menu-button">Perfil</button>
-    </ol>
-    <ol>
-      <button class="menu-button">Configuracion</button>
-    </ol>
-    <ol>
-      <button
-        class="menu-button"
-        [routerLink]="['/home']"
-        routerLinkActive="router-link-active"
-      >
-        Cerrar Sesion
-      </button>
-    </ol>
+    <ion-list>
+      <ion-item button>Perfil</ion-item>
+      <ion-item button>Configuración</ion-item>
+      <ion-item button [routerLink]="['/home']" routerLinkActive="router-link-active">
+        Cerrar Sesión
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-menu>
+
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
+      <ion-title>Asistencia</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="ion-padding main-content">
-    <table class="tableStyle">
-      <thead class="theadStyle">
-        <tr>
-          <th>Curso</th>
-          <th>Clases Registradas</th>
-          <th>Asistencia</th>
-          <th>Asistencia Actual</th>
-        </tr>
-      </thead>
-      <tbody class="tbodyStyle">
-        <tr>
-          <td>Arquitectura</td>
-          <td>7</td>
-          <td>5</td>
-          <td><b>71.4%</b></td>
-        </tr>
-        <tr>
-          <td>Calidad De Software</td>
-          <td>9</td>
-          <td>7</td>
-          <td><b>77.8%</b></td>
-        </tr>
-        <tr>
-          <td>Consultas De Bases De Datos</td>
-          <td>8</td>
-          <td>8</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Fundamentos De Antropologia</td>
-          <td>3</td>
-          <td>3</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Ingles Basico Ii</td>
-          <td>8</td>
-          <td>8</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Matematica Aplicada</td>
-          <td>9</td>
-          <td>7</td>
-          <td><b>77.8%</b></td>
-        </tr>
-        <tr>
-          <td>Proceso De Portafolio 4</td>
-          <td>1</td>
-          <td>1</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Programacion De Aplicaciones Moviles</td>
-          <td>8</td>
-          <td>6</td>
-          <td><b>75%</b></td>
-        </tr>
-      </tbody>
-    </table>
+  <ion-content class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Arquitectura</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 7</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 5</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>71.4%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- Repite el bloque de ion-card para cada asignatura, con el estilo margin: 0; para eliminar el espacio entre tarjetas -->
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Calidad De Software</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 9</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 7</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>77.8%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Consultas De Bases De Datos</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 8</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 8</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Fundamentos De Antropología</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 3</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 3</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Inglés Básico II</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 8</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 8</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Matemática Aplicada</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 9</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 7</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>77.8%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Proceso De Portafolio 4</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 1</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 1</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-card style="margin: 0;">
+            <ion-card-header>
+              <ion-card-title class="small-font">Programación De Aplicaciones Móviles</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas: </strong> 8</ion-col>
+                  <ion-col><strong>Asistencia: </strong> 6</ion-col>
+                  <ion-col><strong>Asistencia Actual: </strong> <b>75%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-content>
 </div>
 
+<!-- Botón flotante -->
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
   <ion-fab-button>
     <ion-icon name="camera"></ion-icon>
   </ion-fab-button>
 </ion-fab>
+
+

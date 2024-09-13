@@ -1,37 +1,46 @@
-<div id="container">
-  <!-- titulo de la pagina -->
-  <div class="titulo">
-    <ion-text> Restablecer contraseña </ion-text>
-  </div>
-  <!-- formulario de recuperación -->
-  <div>
-    <div>
-      <div>
-        <ion-text>
-          Por favor, ingrese su correo para restablecer la contraseña.
-        </ion-text>
+<ion-header>
+  <ion-toolbar>
+    <!-- Botón de regreso con flecha -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recuperar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="container">
+    <!-- titulo de la pagina -->
+    <div class="titulo">
+      <ion-text> Restablecer contraseña </ion-text>
+    </div>
+
+    <div class="content">
+      <div class="item-content">
+        <div>
+          <ion-text>
+            Por favor, ingrese su correo para restablecer la contraseña.
+          </ion-text>
+        </div>
+      </div>
+      <div class="form-above item-content">
+        <ion-input 
+          type="text" 
+          class="form-input custom-font" 
+          label="Correo" 
+          labelPlacement="floating" 
+          fill="outline"
+          shape="round" 
+          placeholder="Ingrese correo">
+        </ion-input>
+      </div>
+      <div class="form-below custom-font item-content">
+        <ion-button class="button" shape="round" strong="true">
+          Enviar
+        </ion-button>
       </div>
     </div>
-    <div class="form-above">
-      <ion-input
-        type="text"
-        class="form-input custom-font"
-        label="Correo"
-        labelPlacement="floating"
-        fill="outline"
-        shape="round"
-        placeholder="Ingrese correo"
-      >
-      </ion-input>
-    </div>
-    <div class="form-below custom-font">
-      <ion-button
-        class="button"
-        shape="round"
-        strong="true"
-      >
-        Enviar
-      </ion-button>
-    </div>
   </div>
-</div>
+
+</ion-content>

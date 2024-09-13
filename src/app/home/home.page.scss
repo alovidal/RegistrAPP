@@ -29,3 +29,18 @@
 ion-input {
   margin-bottom: 10px;
 }
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Ajusta según el tamaño de tu imagen */
+  margin-top: 16px; /* Espacio debajo del header */
+}
+
+.animated-image {
+  width: 150px;
+  height: auto;
+  opacity: 0; /* Inicialmente oculta la imagen */
+}
+

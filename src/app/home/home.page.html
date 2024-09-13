@@ -1,11 +1,18 @@
-<ion-content [fullscreen]="true">
-  <div id="container">
-    <div class="titulo">
-      <ion-toolbar class="toolbar-above toolbar-login">
-        <ion-title class="custom-font"> RegistrAPP </ion-title>
-      </ion-toolbar>
-    </div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="custom-font" style="text-align: center;">
+      RegistrAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content [fullscreen]="true">
+  <!-- Imagen centrada con animación -->
+  <div class="image-container">
+    <img #animatedImage class="animated-image" src="assets/IMG/shoukomlem.png" alt="Imagen animada" />
+  </div>
+
+  <div id="container">
     <!-- formulario de ingreso -->
     <div class="form-ingreso">
       <div style="padding: 15px;" class="form-above">
@@ -33,7 +40,7 @@
         ></ion-input>
       </div>
       <div class="form-below custom-font">
-        <ion-text [routerLink]="['/recuperar']">
+        <ion-text [routerLink]="['/recuperar']" style="display: block; margin-bottom: 10px;">
           ¿Has olvidado tu contraseña?
         </ion-text>
 
@@ -41,14 +48,18 @@
           <ion-text color="danger">{{ errorMsg }}</ion-text>
         </div>
 
-        <ion-button
-          (click)="validarLogin()"
-          class="button"
-          shape="round"
-          strong="true"
-        >
-          Ingresar
-        </ion-button>
+        <!-- Agregado un contenedor para forzar el botón a estar debajo -->
+        <div style="display: block; width: 50%; margin: 0 auto;">
+          <ion-button
+            (click)="validarLogin()"
+            class="button"
+            shape="round"
+            strong="true"
+            expand="block"
+          >
+            Ingresar
+          </ion-button>
+        </div>
       </div>
     </div>
   </div>
