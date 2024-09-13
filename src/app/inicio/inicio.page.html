@@ -1,3 +1,4 @@
+<!--menu principal-->
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
@@ -12,12 +13,12 @@
           src="https://ionicframework.com/docs/img/demos/avatar.svg"
         />
       </ion-avatar>
-      <div style="border: none;">
-      <ion-label>Bienvenida/o hola {{username}}</ion-label>
-    </div>
+      <div style="border: none">
+        <ion-label>Bienvenida/o {{username}}</ion-label>
+      </div>
     </ion-item>
     <ol>
-      <button class="menu-button">Perfil</button>
+      <button class="menu-button" [routerLink]="['/perfil']">Perfil</button>
     </ol>
     <ol>
       <button class="menu-button">Configuracion</button>
@@ -33,15 +34,19 @@
     </ol>
   </ion-content>
 </ion-menu>
+
+<!--Header-->
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
+      <ion-title>Asistencia</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <!--Tabla asistencia-->
   <ion-content class="ion-padding main-content">
     <table class="tableStyle">
       <thead class="theadStyle">
@@ -106,6 +111,7 @@
   </ion-content>
 </div>
 
+<!--Apartado qr-->
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
   <ion-fab-button>
     <ion-icon name="camera"></ion-icon>
