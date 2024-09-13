@@ -1,4 +1,5 @@
-<!--menu principal-->
+<!--menu principal
+La idea seria usar la opcion children para que las demas no salten y sean parte de la principal-->
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
@@ -21,7 +22,7 @@
       <button class="menu-button" [routerLink]="['/perfil']">Perfil</button>
     </ol>
     <ol>
-      <button class="menu-button">Configuracion</button>
+      <button class="menu-button" [routerLink]="['/configuracion']">Configuracion</button>
     </ol>
     <ol>
       <button
