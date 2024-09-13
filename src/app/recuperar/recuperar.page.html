@@ -1,49 +1,37 @@
-<ion-content [fullscreen]="true">
-  <!-- <ion-header class="header-page header-recover">
-    <ion-toolbar class="toolbar-above toolbar-recover">
-      <ion-buttons slot="end">
-        <ion-back-button style="color: black;">volver</ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header> -->
-
-  <div id="container">
-    <!-- titulo de la pagina -->
-    <div class="titulo">
-      <ion-text class="custom-font">
-        Restablecer
-        contraseña
-      </ion-text>
+<div id="container">
+  <!-- titulo de la pagina -->
+  <div class="titulo">
+    <ion-text> Restablecer contraseña </ion-text>
+  </div>
+  <!-- formulario de recuperación -->
+  <div>
+    <div>
+      <div>
+        <ion-text>
+          Por favor, ingrese su correo para restablecer la contraseña.
+        </ion-text>
+      </div>
     </div>
-    <!-- formulario de recuperación -->
-    <div class="form-recover">
-      <div class="form-below">
-        <div class="instructions">
-          <ion-text class="custom-font">
-            Por favor, ingrese su correo para restablecer la contraseña.
-          </ion-text>
-        </div>
-      </div>
-      <div class="form-above">
-        <ion-input
-          type="text"
-          class="form-input custom-font" 
-          label="Correo" 
-          labelPlacement="floating" 
-          fill="outline" 
-          shape="round" 
-          placeholder="Ingrese correo"
-          [(ngModel)]="user.username">
-        </ion-input>
-        <ion-label>
-          <p opacity="50%" align="center" class="custom-font">{{mensaje}}</p>
-        </ion-label>
-      </div>
-      <div class="form-below custom-font">
-        <ion-button [routerLink]="['/notificacion']" class="button" shape="round" strong="true" (click)="validar()" >
-          Enviar
-        </ion-button>
-      </div>
+    <div class="form-above">
+      <ion-input
+        type="text"
+        class="form-input custom-font"
+        label="Correo"
+        labelPlacement="floating"
+        fill="outline"
+        shape="round"
+        placeholder="Ingrese correo"
+      >
+      </ion-input>
+    </div>
+    <div class="form-below custom-font">
+      <ion-button
+        class="button"
+        shape="round"
+        strong="true"
+      >
+        Enviar
+      </ion-button>
     </div>
   </div>
-</ion-content>
+</div>
