@@ -54,7 +54,7 @@ export class HomePage implements AfterViewInit {
       .duration(3000) // Duración de la animación
       .easing('ease-in-out') // Curva de aceleración/desaceleración suave
       .fromTo('opacity', 0, 1) // Efecto de fade-in
-      .fromTo('transform', 'scale(0.8) rotate(0deg)', 'scale(1) rotate(360deg)'); // Efecto de escala + rotación completa
+      .fromTo('transform', 'scale(0.8) rotate(0deg)', 'scale(1) rotate(0deg)'); // Efecto de escala + rotación completa
 
     imageAnimation.play();
   }

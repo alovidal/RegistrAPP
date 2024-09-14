@@ -1,16 +1,23 @@
+
 #container {
   text-align: center;
+  background-color: #8c8c8c;
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  border: 2px solid white; /* Borde blanco */
 
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  margin: 50px;
 }
 
 #container strong {
   font-size: 20px;
   line-height: 26px;
+  
 }
 
 #container p {
@@ -43,4 +50,9 @@ ion-input {
   height: auto;
   opacity: 0; /* Inicialmente oculta la imagen */
 }
+
+.bold-blue {
+  color: blue; /* Puedes usar cualquier código de color que prefieras */
+}
+
 
