@@ -1,10 +1,10 @@
 
 #container {
   text-align: center;
-  background-color: #8c8c8c;
+  background-color: #ffffff;
   border-radius: 15px; /* Bordes redondeados */
   padding: 20px; /* Espaciado interno */
-  border: 2px solid white; /* Borde blanco */
+  border: 2px solid rgb(0, 0, 0); /* Borde blanco */
 
   position: absolute;
   left: 0;
@@ -35,6 +35,7 @@
 
 ion-input {
   margin-bottom: 10px;
+  color: black;
 }
 
 .image-container {
@@ -49,6 +50,10 @@ ion-input {
   width: 150px;
   height: auto;
   opacity: 0; /* Inicialmente oculta la imagen */
+}
+
+ion-text{
+  color: black;
 }
 
 .bold-blue {

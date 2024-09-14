@@ -9,12 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <div id="container">
-    <!-- Título de la página -->
-    <div class="titulo">
-      <ion-text>Restablecer contraseña</ion-text>
-    </div>
-
+  <div id="container" class="content-recu">
     <!-- Contenido principal -->
     <div class="content">
       <div class="item-content">
@@ -24,17 +19,17 @@
       </div>
       <div class="form-above item-content">
         <ion-input 
-          type="text" 
+          type="email" 
           class="form-input custom-font" 
-          label="Correo" 
+          label="Correo Electronico" 
           labelPlacement="floating" 
           fill="outline"
           shape="round" 
-          placeholder="Ingrese correo">
+          placeholder="Ingrese correo electronico">
         </ion-input>
       </div>
       <div class="form-below custom-font item-content">
-        <ion-button class="button" shape="round" strong="true">
+        <ion-button [routerLink]="['/notificacion']" class="button" shape="round" strong="true">
           Enviar
         </ion-button>
       </div>
