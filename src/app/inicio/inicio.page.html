@@ -40,67 +40,154 @@
 
   <!-- Contenido principal -->
   <ion-content class="ion-padding">
-    <!-- Tabla de asistencia -->
-    <table class="tableStyle">
-      <thead class="theadStyle">
-        <tr>
-          <th>Curso</th>
-          <th>Clases Registradas</th>
-          <th>Asistencia</th>
-          <th>Asistencia Actual</th>
-        </tr>
-      </thead>
-      <tbody class="tbodyStyle">
-        <tr>
-          <td>Arquitectura</td>
-          <td>7</td>
-          <td>5</td>
-          <td><b>71.4%</b></td>
-        </tr>
-        <tr>
-          <td>Calidad De Software</td>
-          <td>9</td>
-          <td>7</td>
-          <td><b>77.8%</b></td>
-        </tr>
-        <tr>
-          <td>Consultas De Bases De Datos</td>
-          <td>8</td>
-          <td>8</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Fundamentos De Antropología</td>
-          <td>3</td>
-          <td>3</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Inglés Básico II</td>
-          <td>8</td>
-          <td>8</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Matemática Aplicada</td>
-          <td>9</td>
-          <td>7</td>
-          <td><b>77.8%</b></td>
-        </tr>
-        <tr>
-          <td>Proceso De Portafolio 4</td>
-          <td>1</td>
-          <td>1</td>
-          <td><b>100%</b></td>
-        </tr>
-        <tr>
-          <td>Programación De Aplicaciones Móviles</td>
-          <td>8</td>
-          <td>6</td>
-          <td><b>75%</b></td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Cards de asistencia -->
+    <ion-grid>
+      <ion-row>
+        <!-- Tarjeta de Arquitectura -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Arquitectura</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 7</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 5</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>71.4%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- Tarjeta de Calidad De Software -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Calidad De Software</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 9</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 7</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>77.8%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- Tarjeta de Consultas De Bases De Datos -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Consultas De Bases De Datos</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 8</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 8</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- Tarjeta de Fundamentos De Antropología -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Fundamentos De Antropología</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 3</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 3</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- Tarjeta de Inglés Básico II -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Inglés Básico II</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 8</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 8</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- Tarjeta de Matemática Aplicada -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Matemática Aplicada</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 9</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 7</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>77.8%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- Tarjeta de Proceso De Portafolio 4 -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Proceso De Portafolio 4</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 1</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 1</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- Tarjeta de Programación De Aplicaciones Móviles -->
+        <ion-col size="12" size-md="6" size-lg="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Programación De Aplicaciones Móviles</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col><strong>Clases Registradas:</strong> 8</ion-col>
+                  <ion-col><strong>Asistencia:</strong> 6</ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>75%</b></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-content>
 
   <!-- Botón flotante -->
