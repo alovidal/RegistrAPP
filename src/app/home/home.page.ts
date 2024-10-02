@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AnimationController } from '@ionic/angular';
+import { AuthenticatorService } from '../servicios/authenticator.service';
 
 @Component({
   selector: 'app-home',
@@ -17,14 +18,14 @@ export class HomePage implements AfterViewInit {
 
   @ViewChild('animatedImage', { read: ElementRef, static: true }) animatedImage!: ElementRef;
 
-  constructor(private router: Router, private animationCtrl: AnimationController) {}
+  constructor(private router: Router, private animationCtrl: AnimationController, private auth:AuthenticatorService) {}
 
   validarLogin() {
     this.errorMsg = ''; // Resetea el mensaje de error
     console.log('Username:', this.user.username);
     console.log('Password:', this.user.password);
 
-    if (this.user.username && this.user.password) {
+    if (this.auth.login(this.user.username, this.user.password)) {
       // Crear NavigationExtras para pasar datos
       const navigationExtras: NavigationExtras = {
         state: {

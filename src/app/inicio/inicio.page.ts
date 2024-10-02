@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticatorService } from 'src/app/servicios/authenticator.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class InicioPage {
   username = '';
-  constructor(private router: Router) {
+  constructor(private router: Router, private auth:AuthenticatorService) {
     const navegacion = this.router.getCurrentNavigation();
     const state = navegacion?.extras.state as {
       username: '';
@@ -18,6 +19,14 @@ export class InicioPage {
     //Console.log
     //Mensaje bienvenida
   }
+  cerrarSesion() {
+    // El menú se quedaba abierto
+    this.router.navigate(["/home"]);
+
+    // El estado del usuario pasa a false
+    this.auth.logout();
+  };
 
   ngOnInit() {}
-}
+
+};

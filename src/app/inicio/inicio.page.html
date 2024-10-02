@@ -20,7 +20,7 @@
     <ion-list>
       <ion-item button [routerLink]="['/perfil']">Perfil</ion-item>
       <ion-item button [routerLink]="['/configuracion']">Configuración</ion-item>
-      <ion-item button [routerLink]="['/home']" routerLinkActive="router-link-active">
+      <ion-item (click)="cerrarSesion()">
         Cerrar Sesión
       </ion-item>
     </ion-list>
