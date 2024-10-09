@@ -16,9 +16,14 @@ export class HomePage implements AfterViewInit {
 
   errorMsg: string = '';
 
-  @ViewChild('animatedImage', { read: ElementRef, static: true }) animatedImage!: ElementRef;
+  @ViewChild('animatedImage', { read: ElementRef, static: true })
+  animatedImage!: ElementRef;
 
-  constructor(private router: Router, private animationCtrl: AnimationController, private auth:AuthenticatorService) {}
+  constructor(
+    private router: Router,
+    private animationCtrl: AnimationController,
+    private auth: AuthenticatorService
+  ) {}
 
   validarLogin() {
     this.errorMsg = ''; // Resetea el mensaje de error
@@ -34,15 +39,19 @@ export class HomePage implements AfterViewInit {
       };
       console.log('Redirigiendo a /inicio con datos de usuario...');
       this.router.navigate(['inicio'], navigationExtras);
+      this.user.username = '';
+      this.user.password = '';
     } else {
       if (!this.user.username) {
-        this.errorMsg = 'Usuario incorrecto.';
+        this.errorMsg = 'Faltan casillas por rellenar.';
       } else if (!this.user.password) {
-        this.errorMsg = 'Contraseña incorrecta.';
+        this.errorMsg = 'Faltan casillas por rellenar.';
       }
+      
       this.user.username = '';
       this.user.password = '';
     }
+
   }
 
   ngAfterViewInit() {
@@ -50,7 +59,8 @@ export class HomePage implements AfterViewInit {
   }
 
   playAnimation() {
-    const imageAnimation = this.animationCtrl.create()
+    const imageAnimation = this.animationCtrl
+      .create()
       .addElement(this.animatedImage.nativeElement)
       .duration(3000) // Duración de la animación
       .easing('ease-in-out') // Curva de aceleración/desaceleración suave
