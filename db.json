@@ -2,9 +2,9 @@
     "users": [
       {
         "id": "1",
-        "username": "j.riquelmee",
+        "username": "admin",
         "email": "correo@correo.cl",
-        "password": "pass1234"
+        "password": "admin"
       },
       {
         "id": "2",
