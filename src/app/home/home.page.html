@@ -44,9 +44,9 @@
            ¿Has olvidado tu <b class="bold-blue">contraseña</b>?
         </ion-text>
 
-        <div *ngIf="errorMsg" class="error-msg">
-          <ion-text color="danger">{{ errorMsg }}</ion-text>
-        </div>
+        <ion-item>
+          <ion-label>{{mensaje}}</ion-label>
+        </ion-item>
 
         <!-- Agregado un contenedor para forzar el botón a estar debajo -->
         <div style="display: block; width: 50%; margin: 0 auto;">

@@ -8,13 +8,13 @@ import { AuthenticatorService } from '../servicios/authenticator.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements AfterViewInit {
+export class HomePage {
   user = {
     username: '',
     password: '',
   };
 
-  errorMsg: string = '';
+  mensaje = '';
 
   @ViewChild('animatedImage', { read: ElementRef, static: true })
   animatedImage!: ElementRef;
@@ -26,47 +26,29 @@ export class HomePage implements AfterViewInit {
   ) {}
 
   validarLogin() {
-    this.errorMsg = ''; // Resetea el mensaje de error
-    console.log('Username:', this.user.username);
-    console.log('Password:', this.user.password);
-
-    if (this.auth.login(this.user.username, this.user.password)) {
-      // Crear NavigationExtras para pasar datos
-      const navigationExtras: NavigationExtras = {
-        state: {
-          username: this.user.username,
-        },
-      };
-      console.log('Redirigiendo a /inicio con datos de usuario...');
-      this.router.navigate(['inicio'], navigationExtras);
-      this.user.username = '';
-      this.user.password = '';
-    } else {
-      if (!this.user.username) {
-        this.errorMsg = 'Faltan casillas por rellenar.';
-      } else if (!this.user.password) {
-        this.errorMsg = 'Faltan casillas por rellenar.';
-      }
-      
-      this.user.username = '';
-      this.user.password = '';
+      this.auth
+        .loginBDD(this.user.username, this.user.password)
+        .then((res) => {
+          if (res && res.success) { // Suponiendo que res.success indica éxito en el login
+            this.mensaje = 'Conexión exitosa';
+    
+            let navigationExtras: NavigationExtras = {
+              state: {
+                username: this.user.username,
+                password: this.user.password,
+              },
+            };
+    
+            // Navegar a la página 'inicio'
+            this.router.navigate(['/inicio'], navigationExtras);
+          } else {
+            this.mensaje = 'Error en las credenciales';
+          }
+        })
+        .catch((error) => {
+          this.mensaje = 'Error en las credenciales';
+        });
     }
-
-  }
-
-  ngAfterViewInit() {
-    this.playAnimation();
-  }
-
-  playAnimation() {
-    const imageAnimation = this.animationCtrl
-      .create()
-      .addElement(this.animatedImage.nativeElement)
-      .duration(3000) // Duración de la animación
-      .easing('ease-in-out') // Curva de aceleración/desaceleración suave
-      .fromTo('opacity', 0, 1) // Efecto de fade-in
-      .fromTo('transform', 'scale(0.8) rotate(0deg)', 'scale(1) rotate(0deg)'); // Efecto de escala + rotación completa
-
-    imageAnimation.play();
+    
   }
 }

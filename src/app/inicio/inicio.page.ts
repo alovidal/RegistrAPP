@@ -22,7 +22,6 @@ export class InicioPage {
   cerrarSesion() {
     // El menú se quedaba abierto
     this.router.navigate(["/home"]);
-
     // El estado del usuario pasa a false
     this.auth.logout();
   };
