@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <!-- Imagen centrada con animación -->
   <div class="image-container">
-    <img #animatedImage class="animated-image" src="/assets/IMG/registrapp.png" alt="Imagen animada" />
+    <img #animatedImage class="animated-image" src="assets/IMG/registrapp.png" alt="Imagen animada" />
   </div>
 
   <div id="container">
@@ -44,9 +44,9 @@
            ¿Has olvidado tu <b class="bold-blue">contraseña</b>?
         </ion-text>
 
-        <ion-item>
-          <ion-label>{{mensaje}}</ion-label>
-        </ion-item>
+        <div *ngIf="errorMsg" class="error-msg">
+          <ion-text color="danger">{{ errorMsg }}</ion-text>
+        </div>
 
         <!-- Agregado un contenedor para forzar el botón a estar debajo -->
         <div style="display: block; width: 50%; margin: 0 auto;">

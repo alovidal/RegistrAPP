@@ -17,6 +17,12 @@
         "username": "i.prueba",
         "email": "prueba@outlook.com",
         "password": "contraseña"
+      },
+      {
+        "id": "4",
+          "username": "Okamin",
+          "email": "Okamin@outlook.com",
+          "password": "Peo123"
       }
     ]
     

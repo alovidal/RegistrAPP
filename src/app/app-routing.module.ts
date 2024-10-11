@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: () => import('./configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
   },
   {
+    path: 'controller',
+    loadChildren: () => import('./admin/controller/controller.module').then( m => m.ControllerPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
   },
