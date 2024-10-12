@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APIControllerService } from 'src/app/servicios/apicontroller.service';
+import { APIControllerService } from 'src/app/service/apicontroller.service';
 
 @Component({
   selector: 'app-controller',

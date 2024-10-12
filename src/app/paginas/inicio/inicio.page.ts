@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticatorService } from 'src/app/servicios/authenticator.service';
+import { AuthenticatorService } from 'src/app/service/authenticator.service';
 
 @Component({
   selector: 'app-inicio',

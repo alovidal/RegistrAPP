@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { authGuard } from './servicios/auth.guard';
+import { authGuard } from './service/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,25 +14,21 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./paginas/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'recuperar',
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
   {
-    path: 'notificacion',
-    loadChildren: () => import('./notificacion/notificacion.module').then( m => m.NotificacionPageModule)
-  },
-  {
     path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule),
+    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule),
     canActivate: [authGuard]
 
   },
   {
     path: 'configuracion',
-    loadChildren: () => import('./configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+    loadChildren: () => import('./paginas/configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
   },
   {
     path: 'controller',
