@@ -1,0 +1,28 @@
+.top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; 
+  text-align: center; 
+}
+
+h1 {
+  font-size: 2.2rem; 
+}
+
+p {
+  font-size: 1.2rem; 
+  margin: 0.5rem 0; 
+}
+
+img {
+  max-width: 80%; 
+  height: auto; 
+}
+
+.back-button {
+  position: flex; 
+  bottom: 20px; 
+  text-decoration: underline;
+}
