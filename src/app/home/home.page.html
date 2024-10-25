@@ -12,10 +12,9 @@
     <img #animatedImage class="animated-image" src="assets/IMG/registrapp.png" alt="Imagen animada" />
   </div>
 
-  <div id="container">
-    <!-- formulario de ingreso -->
-    <div class="form-ingreso">
-      <div style="padding: 15px;" class="form-above">
+  <ion-card>
+    <div class="card-form">
+      <div>
         <ion-input 
           [(ngModel)]="user.username"
           id="username"
@@ -27,6 +26,7 @@
           shape="round"
           placeholder="Ingrese su usuario"
         ></ion-input>
+        
         <ion-input 
           [(ngModel)]="user.password"
           id="password"
@@ -39,7 +39,7 @@
           placeholder="Ingrese su contraseña"
         ></ion-input>
       </div>
-      <div class="form-below custom-font">
+      <div>
         <ion-text [routerLink]="['/recuperar']" style="display: block; margin-bottom: 10px;">
            ¿Has olvidado tu <b class="bold-blue">contraseña</b>?
         </ion-text>
@@ -48,7 +48,6 @@
           <ion-text color="danger">{{ errorMsg }}</ion-text>
         </div>
 
-        <!-- Agregado un contenedor para forzar el botón a estar debajo -->
         <div style="display: block; width: 50%; margin: 0 auto;">
           <ion-button
             (click)="validarLogin()"
@@ -62,5 +61,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </ion-card>
 </ion-content>

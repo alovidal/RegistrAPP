@@ -1,63 +1,41 @@
-
-#container {
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 15px; /* Bordes redondeados */
-  padding: 20px; /* Espaciado interno */
-  border: 2px solid rgb(0, 0, 0); /* Borde blanco */
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 50px;
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-  
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-ion-input {
-  margin-bottom: 10px;
-  color: black;
-}
-
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; /* Ajusta según el tamaño de tu imagen */
-  margin-top: 16px; /* Espacio debajo del header */
+  height: 200px;
+  margin-top: 16px;
 }
 
 .animated-image {
   width: 150px;
   height: auto;
-  opacity: 0; /* Inicialmente oculta la imagen */
+  opacity: 0; 
 }
 
-ion-text{
-  color: black;
+ion-card {
+  border-radius:  10px;
+}
+
+ion-card .card-form ion-input {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+  
+.card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}   
+
+.form-input{
+  --highlight-color-valid: #79baff;
 }
 
 .bold-blue {
-  color: blue; /* Puedes usar cualquier código de color que prefieras */
+  color: blue;
 }
 
 
