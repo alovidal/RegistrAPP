@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { authGuard } from './service/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
@@ -14,30 +13,28 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./paginas/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./paginas/inicio/inicio.module').then(m => m.InicioPageModule)
   },
   {
     path: 'recuperar',
-    loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+    loadChildren: () => import('./recuperar/recuperar.module').then(m => m.RecuperarPageModule)
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./paginas/perfil/perfil.module').then(m => m.PerfilPageModule)
   },
   {
     path: 'configuracion',
-    loadChildren: () => import('./paginas/configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+    loadChildren: () => import('./paginas/configuracion/configuracion.module').then(m => m.ConfiguracionPageModule)
   },
   {
     path: 'controller',
-    loadChildren: () => import('./admin/controller/controller.module').then( m => m.ControllerPageModule)
+    loadChildren: () => import('./admin/controller/controller.module').then(m => m.ControllerPageModule)
   },
   {
     path: '**',
-    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+    loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
   },
-
-
 ];
 
 @NgModule({
@@ -46,4 +43,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
