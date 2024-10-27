@@ -1,40 +1,37 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Optional } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class APIControllerService {
-
-  /* Configuramos URL de nuestar API a consumir */
-  apiURL = "http://localhost:3000";
+export class ApicontrollerService {
 
   constructor(private http: HttpClient) { }
-  /* Cada funcion que realizaremos de la linea API Consume esta ligada a uyna llamada HTTP
-    GET = Obtener datos
-    POST = insertar Datos
-    PUT = Actualizar datos
-    DELETE = eliminar datos
 
-    Cada llamada realizada retorna un objeto de tipo Observable
-    El observable es una representacion de datos que llega de forma asincrona , similar a la promise
-    Este tipo de Dato o retorno puede funcionar como no funcionar , 
-    pero sus respuestas estan mas ligadas a los codigos de estado de respuesta HTTP
-    dando respuestas de la linea 200-300 como positivos y 400-500 en caso de errores 
+  // Ruta de la api
+  apiUrl = "http://127.0.0.1:8000/api";
 
-  */
-  getUsers(): Observable<any> {
-    return this.http.get(this.apiURL + "/users");
-  }
-  postUser(data: any): Observable<any> {
-    return this.http.post(this.apiURL + "/users", data);
-  }
-  updateUser(id: string, data: any): Observable<any> {
-    return this.http.put(this.apiURL + "/users/" + id, data);
+  // Obtener usuario - Usuario y contraseña para el login
+  getUsuario(user: String, pass: String):Observable<any> {
+    const url = `${this.apiUrl}/usuarios/?correo=${user}&contasenia=${pass}`
+    return this.http.get(url)
   }
 
-  deleteUser(id: string): Observable<any> {
-    return this.http.delete(this.apiURL + "/users/" + id);
+  // Obtener usuario - Usuario para recuperar la contraseña
+  getSoloUsuario(user: String): Observable <any> {
+    const url = `${this.apiUrl}/usuarios/?correo=${user}`
+    return this.http.get(url)
+  }
+
+  // Agregar usuario
+  postUsuario(user: any): Observable<any> {
+    return this.http.post(this.apiUrl + "/usuarios/", user);
+  }
+
+  // Actualizar usuario
+  putUsuario(id: number, data: any): Observable<any> {
+    const url = `${this.apiUrl}/usuarios/${id}/`;  
+    return this.http.put(url, data);
   }
 }
