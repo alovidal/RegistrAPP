@@ -34,7 +34,7 @@ export class AuthenticatorService {
         (data) => {
           if (data.length > 0) {
             const usuarioObtenido = data[0];  
-            if (usuarioObtenido.correo === user && usuarioObtenido.contrasenia === pass) {
+            if (usuarioObtenido.username === user && usuarioObtenido.password === pass) {
               resolve(true);
             } else {
               resolve(false);
