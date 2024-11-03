@@ -9,7 +9,7 @@ export class AuthenticatorService {
 
   constructor(private api: ApicontrollerService) { }
 
-  loginBDD(user: String, pass: String): Promise<boolean> {
+  loginBDD(user: string, pass: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (user !== "" && pass !== "") {
         this.validarUsuario(user, pass)
@@ -28,14 +28,20 @@ export class AuthenticatorService {
     });
   }
 
-  validarUsuario(user: String, pass: String): Promise<boolean> {
+  validarUsuario(user: string, pass: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.api.getUsers().subscribe(
+      this.api.getUsers(user, pass).subscribe(
         (data) => {
           if (data.length > 0) {
-            const usuarioObtenido = data[0];  
+            const usuarioObtenido = data[0];
+            console.log(usuarioObtenido);  
             if (usuarioObtenido.username === user && usuarioObtenido.password === pass) {
               resolve(true);
+              this.connectionStatus = true;
+              console.log(user);
+              console.log(pass);
+              console.log(this.connectionStatus);
+              console.log("Usuario conectado");
             } else {
               resolve(false);
             } 
@@ -52,6 +58,8 @@ export class AuthenticatorService {
 
   logout() {
     this.connectionStatus = false;
+    console.log(this.connectionStatus);
+    console.log("Sesión cerrada");
   }
 
   isConected() {

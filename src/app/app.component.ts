@@ -22,15 +22,9 @@ export class AppComponent {
     const navegacion = this.router.getCurrentNavigation();
     const state = navegacion?.extras.state as {
       username: string;
-      password: string;
-      email: string;
-      sede: string;
     };  
     if (state) {
       this.username = state.username || '';
-      this.password = state.password || '';
-      this.email = state.email || '';
-      this.sede = state.sede || '';
     }
   }
 
@@ -41,6 +35,7 @@ export class AppComponent {
 
   cerrarSesion() {
     this.menu.close();
+    console.log("Cerrando sesión...");
     this.auth.logout();
     this.router.navigate(['/home']);
   }

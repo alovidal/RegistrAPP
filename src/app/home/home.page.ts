@@ -23,7 +23,6 @@ export class HomePage implements AfterViewInit {
                 private router: Router) {
   }
 
-
   ngAfterViewInit() {
     this.playAnimation();
   }

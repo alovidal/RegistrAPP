@@ -12,8 +12,9 @@ export class ApicontrollerService {
   // Ruta de la api
   apiUrl = "http://127.0.0.1:8000/api";
 
-  getUsers(): Observable<any> {
-    return this.http.get(this.apiUrl + "/usuarios");
+  getUsers(user: string, pass: string): Observable<any> {
+     const url = `${this.apiUrl}/usuarios/?username=${user}&password=${pass}`;
+    return this.http.get(url);
   }
 
   postUser(data: any): Observable<any> {
