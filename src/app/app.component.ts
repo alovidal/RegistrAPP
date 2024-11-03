@@ -8,27 +8,40 @@ import { AuthenticatorService } from 'src/app/service/authenticator.service';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  username: string = 'Usuario'; // O la lógica que tengas para el nombre de usuario
+  username= '';
+  password = '';
+  email = '';
+  sede = '';
 
   constructor(
     private menu: MenuController,
     private router: Router,
-    private auth: AuthenticatorService // Asegúrate de que este servicio esté correctamente inyectado
-  ) {}
+    private auth: AuthenticatorService
+  ) {
+
+    const navegacion = this.router.getCurrentNavigation();
+    const state = navegacion?.extras.state as {
+      username: string;
+      password: string;
+      email: string;
+      sede: string;
+    };  
+    if (state) {
+      this.username = state.username || '';
+      this.password = state.password || '';
+      this.email = state.email || '';
+      this.sede = state.sede || '';
+    }
+  }
 
   navigateTo(page: string) {
     this.router.navigate([page]);
-    this.menu.close(); // Cierra el menú después de la navegación
+    this.menu.close();
   }
 
   cerrarSesion() {
-    // Cierra el menú antes de navegar
     this.menu.close();
-
-    // El estado del usuario pasa a false
     this.auth.logout();
-
-    // Redirige al usuario a la página de inicio
     this.router.navigate(['/home']);
   }
 }
