@@ -59,7 +59,7 @@ export class InicioPage implements OnInit {
       const porcentaje = (asignatura.clasesAsistidas / asignatura.clasesRegistradas) * 100;
       return `${porcentaje.toFixed(2)}%`;
     }
-    return "0%";
+    return " 0%";
   }
   
 
