@@ -21,12 +21,10 @@ export class AuthenticatorService {
           })
           .catch((error) => {
             this.connectionStatus = false;
-            this.storage.set("estado", false);
             reject(error);
           });
       } else {
         this.connectionStatus = false;
-        this.storage.set("estado", false);
         resolve(false);  
       }
     });
@@ -37,13 +35,18 @@ export class AuthenticatorService {
       this.api.getUsers(user, pass).subscribe(
         (data) => {
           if (data.length > 0) {
-            const usuarioObtenido = data[0]; 
+            const usuarioObtenido = data[0];
             if (usuarioObtenido.username === user && usuarioObtenido.password === pass) {
-              this.storage.set("usuario", user);
-              this.storage.set("estado", true);
-              console.log(this.storage.get("usuario"));
-              console.log(this.storage.get("estado"));
               console.log(usuarioObtenido);
+              
+              // Guardar los datos del usuario en el almacenamiento
+              this.storage.set("usuario", {
+                username: usuarioObtenido.username,
+                email: usuarioObtenido.email,
+                sede: usuarioObtenido.sede,
+                asignaturas: usuarioObtenido.asignaturas,
+              });
+              this.storage.set("estado", true);
               resolve(true);
               this.connectionStatus = true;
               console.log(this.connectionStatus);
@@ -51,7 +54,7 @@ export class AuthenticatorService {
             } else {
               this.storage.set("estado", false);
               resolve(false);
-            } 
+            }
           } else {
             this.storage.set("estado", false);
             resolve(false);
@@ -64,13 +67,13 @@ export class AuthenticatorService {
       );
     });
   }
+  
 
   logout() {
     this.connectionStatus = false;
     console.log(this.connectionStatus);
     console.log("Sesión cerrada");
     this.storage.remove("usuario")
-    this.storage.remove("estado");
     this.storage.limpiar();
   }
 

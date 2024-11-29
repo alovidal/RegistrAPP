@@ -44,12 +44,15 @@ export class InicioPage implements OnInit {
   async ionViewWillEnter() {
     const usuario = await this.storage.get("usuario");
     if (usuario) {
-      this.userStorage.username = usuario;
-      console.log("Usuario storage inicio: ", this.userStorage);
+      this.userStorage.username = usuario.username;
+      this.userStorage.email = usuario.email;
+      this.userStorage.sede = usuario.sede;
+      this.userStorage.asignaturas = usuario.asignaturas;
     } else {
       console.error("No hay usuario en el almacenamiento");
     }
-  }  
+  }
+   
 
   calcularAsistencia(asignatura: any): string {
     if (asignatura.clasesRegistradas && asignatura.clasesRegistradas > 0) {
@@ -61,6 +64,5 @@ export class InicioPage implements OnInit {
   
 
   ngOnInit() {
-    console.log("Usuario recibido desde home", this.user)
   }
 }

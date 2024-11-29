@@ -11,18 +11,18 @@
 
       <ion-card-content>
         <ion-item>
-          <ion-label position="stacked">Nombre</ion-label>
-          <ion-input readonly value="Juan Pérez"></ion-input>
+          <ion-label position="stacked">Nombre de Usuario</ion-label>
+          <ion-input readonly value="{{ userStorage.username }}"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">Correo Electrónico</ion-label>
-          <ion-input readonly value="juan.perez@ejemplo.com"></ion-input>
+          <ion-input readonly value="{{ userStorage.email }}"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked">Teléfono</ion-label>
-          <ion-input readonly value="+123 456 7890"></ion-input>
+          <ion-label position="stacked">Sede</ion-label>
+          <ion-input readonly value="{{ userStorage.sede }}"></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>

@@ -4,17 +4,19 @@
 ></app-header>
 <ion-content [fullscreen]="true" id="inicio-container">
   <div class="main-container">
+    <h2 class="text-center">Bienvenido/a {{ userStorage.username }}</h2>
     <ion-grid>
       <ion-row>
         <ion-col
           size="12"
           size-md="6"
           size-lg="4"
-          *ngFor="let asignatura of userStorage.asignaturas"
+          *ngFor="let asignatura of userStorage.asignaturas; let i = index"
+
         >
           <ion-card>
             <ion-card-header>
-              <ion-card-title></ion-card-title>
+              <ion-card-title>{{ userStorage.asignaturas[i]['nombreAsignatura'] }}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
               <ion-grid>

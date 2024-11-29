@@ -1,43 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
-
-  private strg: Storage = new Storage();
-  private storageReady: Promise<void>;
+  private _storage: Storage | null = null;
 
   constructor(private storage: Storage) {
-    this.storageReady = this.init();
+    this.init();
   }
 
-  async init(): Promise<void> {
+  async init() {
     const storage = await this.storage.create();
-    this.strg = storage;
+    this._storage = storage;
   }
 
-  async StrgListo(): Promise<void> {
-    await this.storageReady;
+  async set(key: string, value: any): Promise<void> {
+    await this._storage?.set(key, value);
   }
 
   async get(key: string): Promise<any> {
-    await this.StrgListo()
-    return this.storage?.get(key);
+    return await this._storage?.get(key);
   }
 
-  async set(key: string, valor: any) {
-    await this.StrgListo()
-    this.storage.set(key, valor);
-  }
-  async remove(key: string) {
-    await this.StrgListo()
-    this.storage.remove(key);
+  async remove(key: string): Promise<void> {
+    await this._storage?.remove(key);
   }
 
-  async limpiar() {
-    await this.StrgListo()
-    this.storage.clear();
+  async limpiar(): Promise<void> {
+    await this._storage?.clear();
   }
 }
