@@ -17,6 +17,11 @@ export class ApicontrollerService {
     return this.http.get(url);
   }
 
+  getEmail(email: string): Observable<any> {
+    const url = `${this.apiUrl}/usuarios/?email=${email}`;
+    return this.http.get(url);
+  }
+  
   postUser(data: any): Observable<any> {
     return this.http.post(this.apiUrl + "/usuarios", data);
   }

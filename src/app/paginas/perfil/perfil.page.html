@@ -1,28 +1,32 @@
-<app-header title="Perfil" (backClicked)="goBack()"></app-header>
+<app-header
+  [contentId]="'perfil-container'"
+  [menuId]="'menuPerfil'"
+></app-header>
+<ion-content [fullscreen]="true" id="perfil-container">
+  <div class="main-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información de Usuario</ion-card-title>
+      </ion-card-header>
 
-<ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Información de Usuario</ion-card-title>
-    </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input readonly value="Juan Pérez"></ion-input>
+        </ion-item>
 
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="stacked">Nombre</ion-label>
-        <ion-input readonly value="Juan Pérez"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Correo Electrónico</ion-label>
+          <ion-input readonly value="juan.perez@ejemplo.com"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Correo Electrónico</ion-label>
-        <ion-input readonly value="juan.perez@ejemplo.com"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input readonly value="+123 456 7890"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
 
-      <ion-item>
-        <ion-label position="stacked">Teléfono</ion-label>
-        <ion-input readonly value="+123 456 7890"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-button expand="block" color="primary">Editar Perfil</ion-button>
+    <ion-button expand="block" color="primary">Editar Perfil</ion-button>
+  </div>
 </ion-content>

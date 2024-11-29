@@ -8,11 +8,14 @@ import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
 
+import { HeaderModule } from 'src/app/header/header.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    HeaderModule,
     InicioPageRoutingModule
   ],
   declarations: [InicioPage]

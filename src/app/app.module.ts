@@ -1,28 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideHttpClient } from '@angular/common/http';
-import { HeaderModule } from './header/header.module'; // header
+import { IonicStorageModule } from '@ionic/storage-angular';
+
+import { HeaderModule } from './header/header.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({ 
+      mode: 'md' 
+    }),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
-    HeaderModule // header
+    HeaderModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideAnimationsAsync(),
     provideHttpClient()
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} 

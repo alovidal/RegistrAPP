@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
+import { ApicontrollerService } from './../../app/service/apicontroller.service';
 
 @Component({
   selector: 'app-recuperar',
@@ -11,7 +12,8 @@ export class RecuperarPage {
 
   constructor(
     private alertController: AlertController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private api: ApicontrollerService
   ) {}
 
   private validateEmailFormat(email: string): boolean {
@@ -19,34 +21,52 @@ export class RecuperarPage {
     return emailPattern.test(email);
   }
 
-  // Función para validar el email y mostrar la notificación
+  // Validar y enviar correo
   async validateEmail() {
     if (!this.email) {
       this.presentAlert('Error', 'Por favor, ingresa un correo electrónico.');
     } else if (!this.validateEmailFormat(this.email)) {
       this.presentAlert('Error', 'El correo electrónico no es válido.');
     } else {
-      this.presentAlert(
-        'Correo Enviado',
-        `Se enviará un correo a: ${this.email}`
-      );
+      try {
+        // Llama al servicio para verificar el correo
+        const response = await this.api.getEmail(this.email).toPromise();
+
+        if (response) {
+          this.presentAlert(
+            'Correo Enviado',
+            `Se ha enviado un correo a: ${this.email}`,
+            true // Redirigir después de mostrar el mensaje
+          );
+        } else {
+          this.presentAlert(
+            'Error',
+            'El correo electrónico no está registrado.'
+          );
+        }
+      } catch (error) {
+        this.presentAlert(
+          'Error',
+          'No se pudo enviar el correo. Intenta nuevamente más tarde.'
+        );
+      }
     }
   }
 
-  // Función para mostrar las notificaciones
   async presentAlert(header: string, message: string, redirect: boolean = false) {
     const alert = await this.alertController.create({
       header: header,
       message: message,
-      buttons: [{
-        text: 'OK',
-        handler: () => {
-          if (redirect) {
-            // Redirigir a otra página después de aceptar
-            this.navCtrl.navigateForward('home');
-          }
-        }
-      }]
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            if (redirect) {
+              this.navCtrl.navigateForward('home');
+            }
+          },
+        },
+      ],
     });
 
     await alert.present();

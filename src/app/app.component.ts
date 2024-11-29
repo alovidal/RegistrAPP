@@ -1,42 +1,35 @@
-import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { AuthenticatorService } from 'src/app/service/authenticator.service';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
+import { StorageService } from './service/storage.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
-  username= '';
-  password = '';
-  email = '';
-  sede = '';
+export class AppComponent implements OnInit {
+  constructor(private storage: StorageService, private router: Router) {}
 
-  constructor(
-    private menu: MenuController,
-    private router: Router,
-    private auth: AuthenticatorService
-  ) {
-
-    const navegacion = this.router.getCurrentNavigation();
-    const state = navegacion?.extras.state as {
-      username: string;
-    };  
-    if (state) {
-      this.username = state.username || '';
-    }
-  }
-
-  navigateTo(page: string) {
-    this.router.navigate([page]);
-    this.menu.close();
-  }
-
-  cerrarSesion() {
-    this.menu.close();
-    console.log("Cerrando sesión...");
-    this.auth.logout();
-    this.router.navigate(['/home']);
+  async ngOnInit() {
+    const estado = await this.storage.get("estado");
+    if (estado) {
+      const usuarioObtenido = await this.storage.get("usuario");
+      if (usuarioObtenido) {
+        let navigationExtras: NavigationExtras = {
+          state: {
+            usurname: usuarioObtenido.username,
+            email: usuarioObtenido.email,
+            password: usuarioObtenido.password,
+            sede: usuarioObtenido.sede,
+            asignaturas: usuarioObtenido.asignaturas,
+          }
+        }
+        this.router.navigate(["/inicio"], navigationExtras)
+      } else {
+        this.router.navigate(["/home"])
+      };
+    } else {
+      this.router.navigate(["/home"])
+    };
   }
 }

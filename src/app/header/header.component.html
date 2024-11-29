@@ -1,13 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>{{ title }}</ion-title>
+<div id="header-componente" *ngIf="mostrarHeader">
+  <ion-header class="header-page">
+    <ion-toolbar>
+      <ion-buttons>
+        <ion-menu-button class="btn-menu" [menu]="menuId"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="div-back">
     <ion-buttons slot="end">
-      <ion-button (click)="onBack()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
+      <ion-buttons *ngIf="mostrarBoton">
+        <ion-back-button class="button-back"></ion-back-button>
+      </ion-buttons>
     </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+  </div>
+</div>
+
+<ion-menu [menuId]="menuId" [contentId]="contentId" class="menu-container">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>RegistrAPP</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img
+          alt="Silhouette of a person's head"
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+        />
+      </ion-avatar>
+      <div style="border: none">
+        <ion-label>Bienvenida/o </ion-label>
+      </div>
+    </ion-item>
+    <ion-list>
+      <ion-item button (click)="navigateTo('/inicio')">Inicio</ion-item>
+      <ion-item button (click)="navigateTo('/perfil')">Perfil</ion-item>
+      <ion-item button (click)="navigateTo('/configuracion')">Configuración</ion-item>
+      <ion-item button (click)="cerrarSesion()">Cerrar Sesión</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

@@ -7,11 +7,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./configuracion.page.scss'],
 })
 export class ConfiguracionPage implements OnInit {
-  constructor(private location: Location) {} 
+  constructor() {} 
 
   ngOnInit() {}
 
-  goBack() {
-    this.location.back(); 
-  }
 }

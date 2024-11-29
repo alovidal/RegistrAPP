@@ -1,199 +1,38 @@
-<!-- Menu principal -->
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <ion-item>
-      <ion-avatar slot="start">
-        <img
-          alt="Silhouette of a person's head"
-          src="https://ionicframework.com/docs/img/demos/avatar.svg"
-        />
-      </ion-avatar>
-      <div style="border: none;">
-        <ion-label>Bienvenida/o {{username}}</ion-label>
-      </div>
-    </ion-item>
-    <ion-list>
-      <ion-item button [routerLink]="['/perfil']">Perfil</ion-item>
-      <ion-item button [routerLink]="['/configuracion']">Configuración</ion-item>
-      <ion-item (click)="cerrarSesion()">
-        Cerrar Sesión
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<!-- Header -->
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Asistencia</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <!-- Contenido principal -->
-  <ion-content class="ion-padding">
-    <!-- Cards de asistencia -->
+<app-header
+  [contentId]="'inicio-container'"
+  [menuId]="'menuInicio'"
+></app-header>
+<ion-content [fullscreen]="true" id="inicio-container">
+  <div class="main-container">
     <ion-grid>
       <ion-row>
-        <!-- Tarjeta de Arquitectura -->
-        <ion-col size="12" size-md="6" size-lg="4">
+        <ion-col
+          size="12"
+          size-md="6"
+          size-lg="4"
+          *ngFor="let asignatura of userStorage.asignaturas"
+        >
           <ion-card>
             <ion-card-header>
-              <ion-card-title>Arquitectura</ion-card-title>
+              <ion-card-title></ion-card-title>
             </ion-card-header>
             <ion-card-content>
               <ion-grid>
                 <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 7</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 5</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>71.4%</b></ion-col>
+                  <ion-col><strong>Clases Registradas:</strong> </ion-col>
+                  <ion-col><strong>Asistencia:</strong> </ion-col>
+                  <ion-col><strong>Asistencia Actual:</strong> <b>{{ calcularAsistencia(asignatura) }}</b></ion-col>
                 </ion-row>
               </ion-grid>
             </ion-card-content>
           </ion-card>
         </ion-col>
-
-        <!-- Tarjeta de Calidad De Software -->
-        <ion-col size="12" size-md="6" size-lg="4">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Calidad De Software</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-grid>
-                <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 9</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 7</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>77.8%</b></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Consultas De Bases De Datos -->
-        <ion-col size="12" size-md="6" size-lg="4">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Consultas De Bases De Datos</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-grid>
-                <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 8</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 8</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Fundamentos De Antropología -->
-        <ion-col size="12" size-md="6" size-lg="4">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Fundamentos De Antropología</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-grid>
-                <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 3</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 3</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Inglés Básico II -->
-        <ion-col size="12" size-md="6" size-lg="4">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Inglés Básico II</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-grid>
-                <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 8</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 8</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Matemática Aplicada -->
-        <ion-col size="12" size-md="6" size-lg="4">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Matemática Aplicada</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-grid>
-                <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 9</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 7</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>77.8%</b></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Proceso De Portafolio 4 -->
-        <ion-col size="12" size-md="6" size-lg="4">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Proceso De Portafolio 4</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-grid>
-                <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 1</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 1</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>100%</b></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Programación De Aplicaciones Móviles -->
-        <ion-col size="12" size-md="6" size-lg="4">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Programación De Aplicaciones Móviles</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-grid>
-                <ion-row>
-                  <ion-col><strong>Clases Registradas:</strong> 8</ion-col>
-                  <ion-col><strong>Asistencia:</strong> 6</ion-col>
-                  <ion-col><strong>Asistencia Actual:</strong> <b>75%</b></ion-col>
-                </ion-row>
-              </ion-grid>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
+      </ion-row>      
     </ion-grid>
-  </ion-content>
-
-  <!-- Botón flotante -->
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-</div>
+  </div>
+</ion-content>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="camera"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

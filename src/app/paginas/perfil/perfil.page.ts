@@ -11,7 +11,4 @@ export class PerfilPage implements OnInit {
 
   ngOnInit() {}
 
-  goBack() {
-    this.location.back(); 
-  }
 }
