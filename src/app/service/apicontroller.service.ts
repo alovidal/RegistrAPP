@@ -10,7 +10,7 @@ export class ApicontrollerService {
   constructor(private http: HttpClient) { }
 
   // Ruta de la api
-  apiUrl = "http://127.0.0.1:8000/api";
+  apiUrl = "https://15wd7tdg-8000.brs.devtunnels.ms/api";
 
   getUsers(user: string, pass: string): Observable<any> {
      const url = `${this.apiUrl}/usuarios/?username=${user}&password=${pass}`;
