@@ -9,7 +9,20 @@ export class AuthenticatorService {
 
   connectionStatus: boolean = false;
 
-  constructor(private api: ApicontrollerService, private storage: StorageService) {}
+  constructor(private api: ApicontrollerService, private storage: StorageService) {
+    // Verificar si el usuario está conectado cuando la app se inicia
+    this.checkConnectionStatus();
+  }
+
+  // Verifica el estado de la conexión al iniciar la aplicación
+  async checkConnectionStatus() {
+    const estado = await this.storage.get("estado");
+    if (estado) {
+      this.connectionStatus = true;
+    } else {
+      this.connectionStatus = false;
+    }
+  }
 
   loginBDD(user: string, pass: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
