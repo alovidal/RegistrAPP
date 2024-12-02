@@ -45,3 +45,11 @@ body {
     --background: #79baff; /* Azul oscuro */
   }
   
+.page-scanner {
+  background: transparent !important;
+  
+  ion-content {
+    --background: transparent !important;
+  }
+}
+  

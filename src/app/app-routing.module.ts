@@ -28,9 +28,14 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/configuracion/configuracion.module').then(m => m.ConfiguracionPageModule)
   },
   {
+    path: 'scanner',
+    loadChildren: () => import('./paginas/scanner/scanner.module').then( m => m.ScannerPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
   },
+
 ];
 
 @NgModule({
