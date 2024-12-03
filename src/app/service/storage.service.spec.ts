@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-
+import { IonicStorageModule } from '@ionic/storage-angular';
 import { StorageService } from './storage.service';
 
 describe('StorageService', () => {
   let service: StorageService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [IonicStorageModule.forRoot()],
+      providers: [StorageService],
+    }).compileComponents();
+
     service = TestBed.inject(StorageService);
   });
 
@@ -14,3 +18,4 @@ describe('StorageService', () => {
     expect(service).toBeTruthy();
   });
 });
+

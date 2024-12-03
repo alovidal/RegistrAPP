@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
+import { IonicStorageModule } from '@ionic/storage-angular'; 
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Importar el módulo de pruebas de HttpClient
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -9,8 +10,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [HeaderComponent],
+      imports: [
+        IonicModule.forRoot(),
+        IonicStorageModule.forRoot(), 
+        HttpClientTestingModule,  // Asegura que HttpClient esté disponible en las pruebas
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);

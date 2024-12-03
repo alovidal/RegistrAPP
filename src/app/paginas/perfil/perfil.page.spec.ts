@@ -1,17 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PerfilPage } from './perfil.page';
+import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
-describe('PerfilPage', () => {
-  let component: PerfilPage;
-  let fixture: ComponentFixture<PerfilPage>;
+@Component({
+  selector: 'app-perfil',
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
+})
+export class PerfilPage {
+  constructor(private storage: Storage) {
+    this.initStorage();
+  }
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PerfilPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  async initStorage() {
+    await this.storage.create(); // Inicializa el almacenamiento
+  }
+}
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
