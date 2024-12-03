@@ -9,8 +9,6 @@ import { PerfilPageRoutingModule } from './perfil-routing.module';
 import { PerfilPage } from './perfil.page';
 
 import { HeaderModule } from 'src/app/header/header.module';
-import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
 
 @NgModule({
   imports: [
@@ -18,9 +16,7 @@ import { Storage } from '@ionic/storage-angular';
     FormsModule,
     IonicModule,
     HeaderModule,
-    PerfilPageRoutingModule,
-    Component,
-    Storage
+    PerfilPageRoutingModule
   ],
   declarations: [PerfilPage]
 })
